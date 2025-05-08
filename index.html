@@ -1,61 +1,653 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Portafolio profesional de [Tu Nombre], desarrollador y consultor tecnológico.">
-  <title>[Tu Nombre] - Portafolio Ejecutivo</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio de Desarrollo y Sistemas de Pago</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2a4365;
+            --secondary-color: #3182ce;
+            --accent-color: #4299e1;
+            --light-color: #ebf8ff;
+            --dark-color: #1a202c;
+            --success-color: #48bb78;
+            --warning-color: #ed8936;
+            --danger-color: #e53e3e;
+            --text-color: #2d3748;
+            --bg-color: #f7fafc;
+            --card-bg: #ffffff;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            padding: 2rem 0;
+            color: white;
+            text-align: center;
+            border-bottom: 5px solid var(--accent-color);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .profile-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid var(--accent-color);
+            object-fit: cover;
+            box-shadow: var(--box-shadow);
+        }
+
+        .profile-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .skill-category {
+            flex: 1;
+            min-width: 250px;
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-category h3 i {
+            margin-right: 0.5rem;
+            color: var(--accent-color);
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-list li:before {
+            content: '•';
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-image {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-title {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0.5rem 0 1rem 0;
+            gap: 0.5rem;
+        }
+
+        .project-tag {
+            background-color: var(--light-color);
+            color: var(--secondary-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-description {
+            flex: 1;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            transition: var(--transition);
+            margin-top: auto;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .contact-section {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: space-between;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-links {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .contact-links li {
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-links li i {
+            margin-right: 0.75rem;
+            width: 20px;
+            color: var(--accent-color);
+        }
+
+        .experience-item {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .experience-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .experience-title {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .experience-company {
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+
+        .experience-date {
+            color: var(--text-color);
+            opacity: 0.7;
+            font-style: italic;
+        }
+
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+
+        .nav-container {
+            position: sticky;
+            top: 0;
+            background-color: white;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 90%;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--light-color);
+            color: var(--primary-color);
+            border-radius: 50%;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background-color: var(--accent-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .profile-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>[Tu Nombre]</h1>
-    <p>Consultor | Desarrollador Full Stack | Estratega Digital</p>
-  </header>
+    <!-- Navegación -->
+    <div class="nav-container">
+        <nav>
+            <a href="#" class="nav-logo">Mi Portafolio</a>
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">Sobre mí</a></li>
+                <li><a href="#skills" class="nav-link">Habilidades</a></li>
+                <li><a href="#projects" class="nav-link">Proyectos</a></li>
+                <li><a href="#experience" class="nav-link">Experiencia</a></li>
+                <li><a href="#contact" class="nav-link">Contacto</a></li>
+            </ul>
+        </nav>
+    </div>
 
-  <nav>
-    <ul>
-      <li><a href="#sobre-mi">Sobre mí</a></li>
-      <li><a href="#proyectos">Proyectos</a></li>
-      <li><a href="#habilidades">Habilidades</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-  </nav>
+    <!-- Cabecera -->
+    <header>
+        <div class="container">
+            <h1>Desarrollo de Software & Sistemas de Pago</h1>
+            <p style="margin-top: 1rem; font-size: 1.2rem;">Especialista en integración de plataformas de pago y sistemas POS</p>
+        </div>
+    </header>
 
-  <main>
-    <section id="sobre-mi">
-      <h2>Sobre mí</h2>
-      <p>Soy un profesional con experiencia en desarrollo de soluciones tecnológicas, integración de IA, y optimización de procesos digitales...</p>
+    <!-- Sobre mí -->
+    <section id="about" class="container">
+        <div class="profile-container">
+            <img src="/api/placeholder/400/400" alt="Foto de perfil" class="profile-image">
+            <div class="profile-content">
+                <h2 class="section-title">Sobre mí</h2>
+                <p>Soy un profesional con amplia experiencia como desarrollador de software, analista de sistemas y consultor de infraestructura. Mi especialización incluye el desarrollo de sistemas de punto de venta, aseguramiento de calidad (QA), y la integración de plataformas de procesamiento de pagos.</p>
+                <p style="margin-top: 1rem;">He trabajado con procesadoras de pago como Credicard y Platco, utilizando simuladores de Visa y MasterCard, herramientas Savvi, y tecnologías de tarjetas Contactless y Chip, tanto en entornos de prueba como de producción.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="proyectos">
-      <h2>Proyectos Destacados</h2>
-      <div class="proyecto">
-        <h3>XPagar App</h3>
-        <p>Aplicación de crédito digital con React Native + Node.js</p>
-        <a href="https://github.com/usuario/xpagar">Ver en GitHub</a>
-      </div>
-      <!-- Agrega más proyectos aquí -->
+    <!-- Habilidades -->
+    <section id="skills" class="container">
+        <h2 class="section-title">Habilidades técnicas</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3><i class="fas fa-code"></i> Lenguajes de Programación</h3>
+                <ul class="skill-list">
+                    <li>Java</li>
+                    <li>JavaScript</li>
+                    <li>C</li>
+                    <li>Clipper</li>
+                    <li>COBOL</li>
+                    <li>PHP</li>
+                    <li>HTML & CSS</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-laptop-code"></i> Frameworks & Plataformas</h3>
+                <ul class="skill-list">
+                    <li>Node.js</li>
+                    <li>React Native</li>
+                    <li>Expo</li>
+                    <li>Android Studio</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-database"></i> Bases de Datos</h3>
+                <ul class="skill-list">
+                    <li>MySQL</li>
+                    <li>SQL Express</li>
+                    <li>dBase</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-credit-card"></i> Tecnologías de Pago</h3>
+                <ul class="skill-list">
+                    <li>Procesadoras de pago (Credicard, Platco)</li>
+                    <li>Tarjetas Contactless y Chip</li>
+                    <li>Simuladores Visa y MasterCard</li>
+                    <li>Herramientas Savvi</li>
+                    <li>SmartSpy</li>
+                </ul>
+            </div>
+        </div>
     </section>
 
-    <section id="habilidades">
-      <h2>Habilidades</h2>
-      <ul>
-        <li>JavaScript / React / Node.js</li>
-        <li>APIs REST / MySQL / MongoDB</li>
-        <li>Integración IA / Automatización</li>
-      </ul>
+    <!-- Proyectos -->
+    <section id="projects" class="container">
+        <h2 class="section-title">Proyectos destacados</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                <div class="project-content">
+                    <h3 class="project-title">Mechantc</h3>
+                    <div class="project-tags">
+                        <span class="project-tag">Java</span>
+                        <span class="project-tag">Node.js</span>
+                        <span class="project-tag">POS</span>
+                        <span class="project-tag">Pagos</span>
+                    </div>
+                    <p class="project-description">
+                        Sistema middleware que facilita la comunicación entre sistemas administrativos de punto de venta y procesadoras de pago, proporcionando una capa de abstracción que simplifica la implementación y mantenimiento.
+                    </p>
+                    <a href="#" class="btn">Ver proyecto</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                <div class="project-content">
+                    <h3 class="project-title">Botón de Pago</h3>
+                    <div class="project-tags">
+                        <span class="project-tag">API REST</span>
+                        <span class="project-tag">WordPress</span>
+                        <span class="project-tag">Shopify</span>
+                        <span class="project-tag">JavaScript</span>
+                    </div>
+                    <p class="project-description">
+                        Solución de integración que conecta plataformas de e-commerce como WordPress y Shopify con diversas procesadoras de pago a través de una API REST segura y personalizable.
+                    </p>
+                    <a href="#" class="btn">Ver proyecto</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                <div class="project-content">
+                    <h3 class="project-title">Sistema para Restaurantes</h3>
+                    <div class="project-tags">
+                        <span class="project-tag">Mobile</span>
+                        <span class="project-tag">Wireless</span>
+                        <span class="project-tag">POS</span>
+                        <span class="project-tag">React Native</span>
+                    </div>
+                    <p class="project-description">
+                        Sistema integral para restaurantes que integra menú digital, gestión de comandas y control de inventario con conectividad 100% inalámbrica para mejorar la eficiencia operativa.
+                    </p>
+                    <a href="#" class="btn">Ver proyecto</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                <div class="project-content">
+                    <h3 class="project-title">xPagar</h3>
+                    <div class="project-tags">
+                        <span class="project-tag">Fintech</span>
+                        <span class="project-tag">API REST</span>
+                        <span class="project-tag">Mobile</span>
+                        <span class="project-tag">Crédito</span>
+                    </div>
+                    <p class="project-description">
+                        Aplicación fintech que otorga créditos para compras de artículos, avances de efectivo, billetera digital y pagos diarios. Incluye API REST, base de datos y landing page.
+                    </p>
+                    <a href="#" class="btn">Ver proyecto</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                <div class="project-content">
+                    <h3 class="project-title">Simuladores de Pago</h3>
+                    <div class="project-tags">
+                        <span class="project-tag">QA</span>
+                        <span class="project-tag">Visa</span>
+                        <span class="project-tag">MasterCard</span>
+                        <span class="project-tag">Testing</span>
+                    </div>
+                    <p class="project-description">
+                        Adecuación e implementación de simuladores Visa y MasterCard para pruebas de calidad en puntos de venta, facilitando la certificación con cada marca de tarjetas.
+                    </p>
+                    <a href="#" class="btn">Ver proyecto</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                <div class="project-content">
+                    <h3 class="project-title">Plataforma QA Financiera</h3>
+                    <div class="project-tags">
+                        <span class="project-tag">Testing</span>
+                        <span class="project-tag">Automatización</span>
+                        <span class="project-tag">Seguridad</span>
+                        <span class="project-tag">Pagos</span>
+                    </div>
+                    <p class="project-description">
+                        Sistema integral de pruebas automatizadas para aplicaciones financieras y de procesamiento de pagos, incluyendo verificación de transacciones y validación de seguridad.
+                    </p>
+                    <a href="#" class="btn">Ver proyecto</a>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="contacto">
-      <h2>Contacto</h2>
-      <p>Email: tuemail@example.com</p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/tuusuario">tuusuario</a></p>
-    </section>
-  </main>
+    <!-- Experiencia -->
+    <section id="experience" class="container">
+        <h2 class="section-title">Experiencia profesional</h2>
 
-  <footer>
-    <p>&copy; 2025 [Tu Nombre]. Todos los derechos reservados.</p>
-  </footer>
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <h3 class="experience-title">Desarrollador de Software Senior</h3>
+                    <h4 class="experience-company">Consultor Independiente</h4>
+                </div>
+                <span class="experience-date">2020 - Presente</span>
+            </div>
+            <p>Desarrollo de soluciones personalizadas para integración de sistemas de pago, incluyendo implementaciones para puntos de venta y plataformas de comercio electrónico. Especialización en la conexión con procesadoras como Credicard y Platco.</p>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <h3 class="experience-title">Consultor QA</h3>
+                    <h4 class="experience-company">Empresa de Procesamiento de Pagos</h4>
+                </div>
+                <span class="experience-date">2018 - 2020</span>
+            </div>
+            <p>Responsable de asegurar la calidad en implementaciones de sistemas de pago, trabajando con simuladores de Visa y MasterCard, herramientas Savvi y dispositivos SmartSpy para la verificación de transacciones seguras.</p>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <h3 class="experience-title">Analista de Sistemas</h3>
+                    <h4 class="experience-company">Consultora Tecnológica</h4>
+                </div>
+                <span class="experience-date">2015 - 2018</span>
+            </div>
+            <p>Análisis y desarrollo de sistemas empresariales, con enfoque en soluciones para el sector retail y hospitalidad. Implementación de sistemas de punto de venta y soluciones de pago integradas.</p>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <h3 class="experience-title">Consultor de Infraestructura</h3>
+                    <h4 class="experience-company">Servicios Financieros</h4>
+                </div>
+                <span class="experience-date">2012 - 2015</span>
+            </div>
+            <p>Diseño e implementación de infraestructura tecnológica para sistemas de procesamiento de transacciones, asegurando alta disponibilidad, seguridad y rendimiento óptimo para aplicaciones críticas.</p>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title" style="color: white; border-color: var(--accent-color);">Contacto</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <p>¿Interesado en trabajar juntos? Estoy disponible para proyectos y consultoría en desarrollo de software, sistemas de pago y soluciones tecnológicas.</p>
+                    <ul class="contact-links">
+                        <li><i class="fas fa-envelope"></i> email@example.com</li>
+                        <li><i class="fas fa-phone"></i> +xx xxx xxx xxxx</li>
+                        <li><i class="fab fa-github"></i> github.com/username</li>
+                        <li><i class="fab fa-linkedin"></i> linkedin.com/in/username</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mi Portafolio. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
 </body>
 </html>
