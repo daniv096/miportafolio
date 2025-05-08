@@ -417,6 +417,49 @@
     font-size: 0.95rem;
     color: #333;
   }
+  .skill-category {
+    text-align: center;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+  }
+
+  .skill-category h3 {
+    font-size: 1.2rem;
+    color: #ff6600;
+    margin-bottom: 20px;
+  }
+
+  .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+  }
+
+  .skill-item img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 8px;
+  }
+
+  .skill-item span {
+    font-size: 0.95rem;
+    color: #333;
+    text-align: center;
+  }
     </style>
 </head>
 <body>
@@ -498,35 +541,73 @@
                 </ul>
               </div>
 
-            <div class="skill-category">
+              <div class="skill-category">
                 <h3><i class="fas fa-laptop-code"></i> Frameworks & Plataformas</h3>
                 <ul class="skill-list">
-                    <li>Node.js</li>
-                    <li>React Native</li>
-                    <li>Expo</li>
-                    <li>Android Studio</li>
+                  <li class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
+                    <span>Node.js</span>
+                  </li>
+                  <li class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React Native">
+                    <span>React Native</span>
+                  </li>
+                  <li class="skill-item">
+                    <img src="https://seeklogo.com/images/E/expo-go-logo-01C2AEB1E4-seeklogo.com.png" alt="Expo">
+                    <span>Expo</span>
+                  </li>
+                  <li class="skill-item">
+                    <img src="https://developer.android.com/static/studio/images/studio-icon.svg" alt="Android Studio">
+                    <span>Android Studio</span>
+                  </li>
                 </ul>
-            </div>
-
-            <div class="skill-category">
+              </div>
+              
+              <!-- Bases de Datos -->
+              <div class="skill-category">
                 <h3><i class="fas fa-database"></i> Bases de Datos</h3>
                 <ul class="skill-list">
-                    <li>MySQL</li>
-                    <li>SQL Express</li>
-                    <li>dBase</li>
+                  <li class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
+                    <span>MySQL</span>
+                  </li>
+                  <li class="skill-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Sql_data_base_with_logo.png" alt="SQL Express">
+                    <span>SQL Express</span>
+                  </li>
+                  <li class="skill-item">
+                    <img src="assets/dbase.png" alt="dBase">
+                    <span>dBase</span>
+                  </li>
                 </ul>
-            </div>
-
-            <div class="skill-category">
+              </div>
+              
+              <!-- Tecnologías de Pago -->
+              <div class="skill-category">
                 <h3><i class="fas fa-credit-card"></i> Tecnologías de Pago</h3>
                 <ul class="skill-list">
-                    <li>Procesadoras de pago (Credicard, Platco)</li>
-                    <li>Tarjetas Contactless y Chip</li>
-                    <li>Simuladores Visa y MasterCard</li>
-                    <li>Herramientas Savvi</li>
-                    <li>SmartSpy</li>
+                  <li class="skill-item">
+                    <img src="assets/prosesadora.png" alt="Procesadoras de Pago">
+                    <span>Credicard, Platco</span>
+                  </li>
+                  <li class="skill-item">
+                    <img src="assets/contactless.jpg" alt="Contactless y Chip">
+                    <span>Tarjetas Contactless</span>
+                  </li>
+                  <li class="skill-item">
+                    <img src="assets/simuladores.png" alt="Visa MasterCard">
+                    <span>Simuladores Visa/MC</span>
+                  </li>
+                  <li class="skill-item">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3163/3163508.png" alt="Savvi Tools">
+                    <span>Herramientas Savvi</span>
+                  </li>
+                  <li class="skill-item">
+                    <img src="assets/fime.png" alt="SmartSpy">
+                    <span>SmartSpy</span>
+                  </li>
                 </ul>
-            </div>
+              </div>
         </div>
     </section>
 
